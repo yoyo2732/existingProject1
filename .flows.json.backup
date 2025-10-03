@@ -1,0 +1,521 @@
+[
+    {
+        "id": "054a40703d786c9d",
+        "type": "tab",
+        "label": "Bandwidth Monitor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2675ce9421e15d59",
+        "type": "ui_group",
+        "name": "Internet SpeedTests",
+        "tab": "7f50838.c6d257c",
+        "order": 9,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7f50838.c6d257c",
+        "type": "ui_tab",
+        "name": "Bandwidth Monitor",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6f9fb24bd52cb5aa",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "9ff51bb6e1b7834a",
+        "type": "inject",
+        "z": "054a40703d786c9d",
+        "name": "Every 2 hours",
+        "props": [
+            {
+                "p": "acceptLicense",
+                "v": "true",
+                "vt": "bool"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "7200",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "eb63ed16f61bb8f8"
+            ]
+        ]
+    },
+    {
+        "id": "bb232839776255d7",
+        "type": "debug",
+        "z": "054a40703d786c9d",
+        "name": "debug 60",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b84f20aad96b6992",
+        "type": "ui_text",
+        "z": "054a40703d786c9d",
+        "group": "2675ce9421e15d59",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "ST Last Run",
+        "label": "Last Run",
+        "format": "{{msg.payload.timestamp}}",
+        "layout": "row-spread",
+        "x": 840,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8ffd8b10ec1a8cab",
+        "type": "ui_text",
+        "z": "054a40703d786c9d",
+        "group": "2675ce9421e15d59",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "name": "ST Jitter",
+        "label": "jitter",
+        "format": "{{msg.payload.ping.jitter}}",
+        "layout": "col-center",
+        "x": 590,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1b4a277dceebeb59",
+        "type": "ui_text",
+        "z": "054a40703d786c9d",
+        "group": "2675ce9421e15d59",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "name": "ST Latency",
+        "label": "latency",
+        "format": "{{msg.payload.ping.latency}}",
+        "layout": "col-center",
+        "x": 600,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b66266e4c64bcef9",
+        "type": "function",
+        "z": "054a40703d786c9d",
+        "name": "Upload ST",
+        "func": "let upload_bandwidth = msg.payload.upload.bandwidth/125000\n\nupload_bandwidth = Math.round(upload_bandwidth);\nmsg.payload = upload_bandwidth;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 440,
+        "wires": [
+            [
+                "8d4ae855ebfbd8ca",
+                "bed17e3a060c1051"
+            ]
+        ]
+    },
+    {
+        "id": "d50a31ae3c9015ff",
+        "type": "function",
+        "z": "054a40703d786c9d",
+        "name": "Download ST",
+        "func": "let download_bandwidth = msg.payload.download.bandwidth/125000\n\ndownload_bandwidth = Math.round(download_bandwidth);\n\nmsg.payload = download_bandwidth;\nmsg.topic = \"\"\n\nreturn msg;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "a3b0e220e935af7c",
+                "09b85caa2f5b819d",
+                "3d55421b94772766",
+                "50f3c594dbd0c7df"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a3b0e220e935af7c",
+        "type": "ui_gauge",
+        "z": "054a40703d786c9d",
+        "name": "ST Download Bandwidth",
+        "group": "2675ce9421e15d59",
+        "order": 5,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Download",
+        "label": "Mbs",
+        "format": "{{msg.payload}}",
+        "min": "500",
+        "max": "1000",
+        "colors": [
+            "#f40000",
+            "#e6e600",
+            "#00f500"
+        ],
+        "seg1": "700",
+        "seg2": "800",
+        "x": 840,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8d4ae855ebfbd8ca",
+        "type": "ui_gauge",
+        "z": "054a40703d786c9d",
+        "name": "ST Upload Bandwidth",
+        "group": "2675ce9421e15d59",
+        "order": 6,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "Upload",
+        "label": "Mbs",
+        "format": "{{msg.payload}}",
+        "min": "500",
+        "max": "1000",
+        "colors": [
+            "#ff0000",
+            "#e6e600",
+            "#00ff00"
+        ],
+        "seg1": "700",
+        "seg2": "800",
+        "x": 810,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "751f115c09446939",
+        "type": "ui_text",
+        "z": "054a40703d786c9d",
+        "group": "2675ce9421e15d59",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "ST Server",
+        "label": "Speed Server",
+        "format": "{{msg.payload.server.location}}",
+        "layout": "row-spread",
+        "x": 610,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "09b85caa2f5b819d",
+        "type": "ui_chart",
+        "z": "054a40703d786c9d",
+        "name": "ST Download Chart",
+        "group": "2675ce9421e15d59",
+        "order": 7,
+        "width": 6,
+        "height": 3,
+        "label": "Download",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "7",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 840,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bed17e3a060c1051",
+        "type": "ui_chart",
+        "z": "054a40703d786c9d",
+        "name": "ST Upload Chart",
+        "group": "2675ce9421e15d59",
+        "order": 8,
+        "width": 6,
+        "height": 3,
+        "label": "Upload",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "7",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 840,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d55421b94772766",
+        "type": "debug",
+        "z": "054a40703d786c9d",
+        "name": "debug 65",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9313077e83915c14",
+        "type": "moment",
+        "z": "054a40703d786c9d",
+        "name": "",
+        "topic": "",
+        "input": "payload.timestamp",
+        "inputType": "msg",
+        "inTz": "ETC/UTC",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "MM-DD-YY HH:mm:ss z",
+        "locale": "en-GB",
+        "output": "msg.payload.timestamp",
+        "outputType": "msg",
+        "outTz": "America/Chicago",
+        "x": 650,
+        "y": 200,
+        "wires": [
+            [
+                "b84f20aad96b6992"
+            ]
+        ]
+    },
+    {
+        "id": "50f3c594dbd0c7df",
+        "type": "switch",
+        "z": "054a40703d786c9d",
+        "name": "< 500?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "500",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 820,
+        "y": 320,
+        "wires": [
+            [
+                "fc6672c44ccc01aa"
+            ]
+        ]
+    },
+    {
+        "id": "fc6672c44ccc01aa",
+        "type": "link out",
+        "z": "054a40703d786c9d",
+        "name": "WAN Router Bandwidth < 500 Alarm Out",
+        "mode": "link",
+        "links": [
+            "0c4086e02b668717"
+        ],
+        "x": 965,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "eb63ed16f61bb8f8",
+        "type": "speedtest",
+        "z": "054a40703d786c9d",
+        "name": "",
+        "maxTime": 5000,
+        "serverId": "12953",
+        "acceptLicense": true,
+        "acceptGdpr": true,
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "8ffd8b10ec1a8cab",
+                "1b4a277dceebeb59",
+                "b66266e4c64bcef9",
+                "d50a31ae3c9015ff",
+                "bb232839776255d7",
+                "751f115c09446939",
+                "9313077e83915c14"
+            ]
+        ]
+    }
+]
